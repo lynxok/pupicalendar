@@ -77,7 +77,7 @@ export default function App() {
           <div className="h-12 w-12 rounded-2xl bg-slate-900 animate-pulse flex items-center justify-center">
             <Zap className="h-6 w-6 text-white" />
           </div>
-          <p className="text-sm font-medium text-slate-400 animate-pulse uppercase tracking-[0.2em]">NextGen 2026</p>
+          <p className="text-sm font-medium text-slate-400 animate-pulse uppercase tracking-[0.2em]">PupiCalendar</p>
         </div>
       </div>
     );

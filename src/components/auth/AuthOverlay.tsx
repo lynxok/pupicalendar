@@ -59,7 +59,7 @@ export function AuthOverlay() {
             <div className="h-16 w-16 rounded-[24px] bg-natural-accent text-white flex items-center justify-center mx-auto mb-6 shadow-xl rotate-3">
               <Sparkles className="h-8 w-8" />
             </div>
-            <h2 className="text-3xl font-serif italic text-natural-text mb-2">NextGen 2026</h2>
+            <h2 className="text-3xl font-serif italic text-natural-text mb-2">PupiCalendar</h2>
             <p className="text-[10px] font-black uppercase tracking-[0.3em] text-natural-accent opacity-60">Sincronización Neural de Intenciones</p>
           </div>
 

@@ -1,0 +1,82 @@
+{
+  "entities": {
+    "tasks": {
+      "title": "Task",
+      "description": "A productivity task with priority and scheduling data.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string", "maxLength": 200 },
+        "description": { "type": "string", "maxLength": 2000 },
+        "priority": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+        "status": { "type": "string", "enum": ["todo", "in_progress", "done", "backlog"] },
+        "dueDate": { "type": "string", "format": "date-time" },
+        "isDeepWork": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "status", "createdAt"]
+    },
+    "habits": {
+      "title": "Habit",
+      "description": "A recurring behavior to track over time.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string", "maxLength": 100 },
+        "frequency": { "type": "string", "enum": ["daily", "weekly", "monthly"] },
+        "streak": { "type": "number" },
+        "history": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name", "frequency"]
+    },
+    "notes": {
+      "title": "Note",
+      "description": "Digital stationery note or quick capture content.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string", "maxLength": 200 },
+        "content": { "type": "string" },
+        "type": { "type": "string", "enum": ["text", "canvas", "capture"] },
+        "tags": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "type", "createdAt"]
+    },
+    "sketches": {
+      "title": "Sketch",
+      "description": "Visual drawings and sketches.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "imageData": { "type": "string" },
+        "paths": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "imageData", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/tasks/{taskId}": {
+      "schema": "tasks",
+      "description": "User's productivity tasks"
+    },
+    "/users/{userId}/habits/{habitId}": {
+      "schema": "habits",
+      "description": "User's habit tracking"
+    },
+    "/users/{userId}/notes/{noteId}": {
+      "schema": "notes",
+      "description": "User's notes and stationery"
+    },
+    "/users/{userId}/sketches/{sketchId}": {
+      "schema": "sketches",
+      "description": "User's visual sketches"
+    }
+  }
+}
